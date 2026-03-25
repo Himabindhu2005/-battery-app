@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .card { background: #1e293b; padding: 40px; border-radius: 16px; width: 100%; max-width: 560px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+        h2 { text-align: center; color: #38bdf8; margin-bottom: 24px; font-size: 1.8rem; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .full { grid-column: span 2; }
+        label { display: block; margin-bottom: 6px; color: #94a3b8; font-size: 0.85rem; }
+        input, select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #e2e8f0; font-size: 0.95rem; }
+        input:focus, select:focus { outline: none; border-color: #38bdf8; }
+        button { width: 100%; padding: 12px; margin-top: 20px; background: #38bdf8; color: #0f172a; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+        button:hover { background: #0ea5e9; }
+        .back { text-align: center; margin-top: 12px; }
+        .back a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🔋 Battery Prediction</h2>
+        <form method="POST">
+            <div class="grid">
+                <div class="full">
+                    <label>Battery ID</label>
+                    <select name="battery_id">
+                        <option>B5</option>
+                        <option>B6</option>
+                        <option>B7</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Cycle</label>
+                    <input type="number" name="cycle" placeholder="e.g. 10" required>
+                </div>
+                <div>
+                    <label>Charge Current (chI)</label>
+                    <input type="number" name="chI" step="any" placeholder="e.g. 1.44" required>
+                </div>
+                <div>
+                    <label>Charge Voltage (chV)</label>
+                    <input type="number" name="chV" step="any" placeholder="e.g. 4.25" required>
+                </div>
+                <div>
+                    <label>Charge Temp (chT)</label>
+                    <input type="number" name="chT" step="any" placeholder="e.g. 24.0" required>
+                </div>
+                <div>
+                    <label>Discharge Current (disI)</label>
+                    <input type="number" name="disI" step="any" placeholder="e.g. 1.89" required>
+                </div>
+                <div>
+                    <label>Discharge Voltage (disV)</label>
+                    <input type="number" name="disV" step="any" placeholder="e.g. 3.27" required>
+                </div>
+                <div>
+                    <label>Discharge Temp (disT)</label>
+                    <input type="number" name="disT" step="any" placeholder="e.g. 32.9" required>
+                </div>
+                <div>
+                    <label>Battery Capacity (BCt)</label>
+                    <input type="number" name="BCt" step="any" placeholder="e.g. 1.98" required>
+                </div>
+            </div>
+            <button type="submit">Predict Now</button>
+        </form>
+        <div class="back"><a href="/index">← Back to Dashboard</a></div>
+    </div>
+</body>
+</html>

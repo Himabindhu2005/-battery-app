@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .card { background: #1e293b; padding: 40px; border-radius: 16px; width: 100%; max-width: 520px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+        h2 { text-align: center; color: #38bdf8; margin-bottom: 24px; font-size: 1.8rem; }
+        .result-box { background: #0f172a; border-radius: 12px; padding: 20px; margin-bottom: 16px; text-align: center; }
+        .result-box .label { color: #94a3b8; font-size: 0.9rem; margin-bottom: 6px; }
+        .result-box .value { font-size: 2rem; font-weight: 700; }
+        .soh { color: #22c55e; }
+        .rul { color: #38bdf8; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .info-item { background: #0f172a; padding: 10px; border-radius: 8px; font-size: 0.85rem; }
+        .info-item span { color: #94a3b8; display: block; }
+        .btn { display: inline-block; width: 48%; padding: 10px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .btn-primary { background: #38bdf8; color: #0f172a; }
+        .btn-danger { background: #ef4444; color: white; }
+        .actions { display: flex; gap: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🔋 Prediction Results</h2>
+        <div class="result-box">
+            <div class="label">State of Health (SOH)</div>
+            <div class="value soh">{{ soh }}%</div>
+        </div>
+        <div class="result-box">
+            <div class="label">Remaining Useful Life (RUL)</div>
+            <div class="value rul">{{ rul }} cycles</div>
+        </div>
+        <div class="info-grid">
+            <div class="info-item"><span>Battery ID</span>{{ battery_id }}</div>
+            <div class="info-item"><span>Cycle</span>{{ cycle }}</div>
+            <div class="info-item"><span>Charge Current</span>{{ chI }}</div>
+            <div class="info-item"><span>Charge Voltage</span>{{ chV }}</div>
+            <div class="info-item"><span>Charge Temp</span>{{ chT }}</div>
+            <div class="info-item"><span>Discharge Current</span>{{ disI }}</div>
+            <div class="info-item"><span>Discharge Voltage</span>{{ disV }}</div>
+            <div class="info-item"><span>Discharge Temp</span>{{ disT }}</div>
+        </div>
+        <div class="actions">
+            <a href="/predict" class="btn btn-primary">🔍 Predict Again</a>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
